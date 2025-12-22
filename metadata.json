@@ -1,0 +1,8 @@
+{
+  "name": "Vivek - Global Devotees of Swami Vivekananda",
+  "description": "A comprehensive platform for the Vivek organization, featuring event management, scholarship programs, a digital library, membership registration, and a secure donation portal.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

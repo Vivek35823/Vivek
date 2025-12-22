@@ -1,0 +1,133 @@
+import React from 'react';
+import { Event, LibraryItem, Scholarship } from './types';
+
+export type Language = 'en' | 'bn';
+
+export const TRANSLATIONS = {
+  en: {
+    nav: { home: 'Home', events: 'Events', library: 'Library', scholarships: 'Scholarships', join: 'Join Us', donate: 'Donate', about: 'About', prayers: 'Prayers', aboutUs: 'About Us' },
+    hero: { title: 'Awaken the', subtitle: 'Inner Divinity.', tagline: 'A Global Collective of Devotees of Swami Vivekananda', desc: '"Arise, awake, and stop not until the goal is reached." Join the mission of strength and service.', cta1: 'Become a Member', cta2: 'Our Philosophy' },
+    prayers: { title: 'Global Sanctuary', subtitle: 'Collective Prayer', desc: 'Join our synchronized global sessions for peace and strength.', joinBtn: 'Join Zoom / Meet', instructions: 'Please join 5 minutes early for technical setup.', schedule: 'Prayer Schedule', scheduleDesc: 'Synchronized sessions held weekly on Sundays.', techRequirements: 'Technical Requirements', techDesc: 'Stable internet, headphones, and a quiet environment are recommended for the best experience.', etiquette: 'Etiquette', etiquetteDesc: 'Please keep your microphone muted unless instructed otherwise. Cameras are optional but encouraged.', timeRemaining: 'Time Remaining', quote: '"Prayer is the highest strength a human can possess."', active: 'Active' },
+    events: { pageTitle: 'Upcoming Events', subtitle: 'Events & Activities', desc: 'Join our international community in collective spiritual practices and educational workshops.', viewDetails: 'View Details', joinLink: 'Join Link', category: 'Category', date: 'Date', time: 'Time', location: 'Location', description: 'Description', virtualEventLink: 'Virtual Event Link', joinOnline: 'Join Online Prayer', close: 'Close', upcoming: 'Upcoming', ongoing: 'Ongoing' },
+    about: { pageTitle: 'About Us', subtitle: 'Organization Overview & Mission', orgDescription: 'Organization Description', orgName: 'Organization Name', nameEn: 'English: Vivekananda International Value and Education Centre—VIVEK', nameBn: 'Bengali: Vivekananda Vedanta Centre—Vivek', foundedDate: 'Founded Date', foundedDesc: 'After operating informally for approximately 13 years since 2011, the organization formally announced its official launch on January 1, 2024. Therefore, January 1 is celebrated as the organization\'s founding day.', address: 'Address', addressOnline: 'Online: Website: http://vivekfoundation.org', orgType: 'Organization Type', orgTypeDesc: 'Apolitical, Non-profit, Service-oriented Non-governmental Institution', ideology: 'Ideology & Objectives', ideologyTitle: 'Ideology', ideologyDesc: 'The life and teachings of Swami Vivekananda form the foundation of this organization. Guided by his principle "To be good and to do good—that is the whole of religion," we strive to develop ourselves as true human beings and help others become true human beings as well.', objectives: 'Objectives', objectivesDesc: 'While striving to develop ourselves as true humans, we aim to serve humanity for the welfare of ourselves and society. Some short and long-term objectives include:', objectiveList: [ 'Build a socially conscious and awakened youth community through service initiatives', 'Assist underprivileged and disadvantaged children to become responsible citizens', 'Provide support to all regardless of caste, creed, religion, age, or background in their journey to become true humans', 'Give special focus and priority to backward, homeless, disadvantaged, minority, and tribal communities' ], foundersTitle: 'Founders & Members', foundersDesc: 'This organization has no single founder. All individuals who work for the organization are important members. The organization maintains no significant titles or positions. While volunteers may be assigned various responsibilities and administrative titles may be used internally, all members publicly identify as "Vivekananda Devotees" and use no official titles in public engagement or interactions with the general public.', activitiesTitle: 'Organization Activities', activitiesDesc: 'The organization\'s work is divided into two main categories:', selfDevelopment: 'Self-Development Activities', selfDevelopmentList: [ 'Study circles (weekly or monthly)', 'Book reading programs', 'Educational courses, seminars, and workshops', 'Meditation, yoga, and other physical and mental wellness programs', 'Competitions for youth and children: drawing, quizzes, recitation, debates, olympiads, music, and other talents' ], serviceActivities: 'Service Activities', serviceActivitiesList: [ 'Education Services: Distribution of free educational materials', 'Medical Services: Free primary healthcare and medicine distribution', 'Festival Support: Distribution of new clothes during festivals', 'Disaster Relief & Emergency Support: Providing food and assistance during crises', 'Humanitarian Service: Participation in all human welfare activities' ] }
+  },
+  bn: {
+    nav: { home: 'প্রচ্ছদ', events: 'অনুষ্ঠান', library: 'গ্রন্থাগার', scholarships: 'বৃত্তি', join: 'সদস্য হন', donate: 'দান করুন', about: 'আমাদের সম্পর্কে', prayers: 'প্রার্থনা', aboutUs: 'আমাদের সম্পর্কে' },
+    hero: { title: 'জাগ্রত করুন আপনার', subtitle: 'অন্তর্নিহিত ঈশ্বরত্ব।', tagline: 'স্বামী বিবেকানন্দের ভক্তদের একটি বিশ্বব্যাপী সংগঠন', desc: '"উত্তিষ্ঠত জাগ্রত প্রাপ্য বরান নিবোধত।" শক্তি ও সেবার এই মহান মিশনে যোগ দিন।', cta1: 'সদস্যপদ গ্রহণ', cta2: 'আমাদের আদর্শ' },
+    prayers: { title: 'বিশ্বব্যাপী প্রার্থনা', subtitle: 'সম্মিলিত উপাসনা', desc: 'শান্তি ও শক্তির জন্য আমাদের নির্ধারিত বিশ্বব্যাপী প্রার্থনা সভায় যোগ দিন।', joinBtn: 'জুমে যোগ দিন', instructions: 'অনুগ্রহ করে ৫ মিনিট আগে যুক্ত হওয়ার চেষ্টা করুন।', schedule: 'প্রার্থনা সময়সূচী', scheduleDesc: 'প্রতি সপ্তাহের রবিবার নির্ধারিত প্রার্থনা সভা।', techRequirements: 'প্রযুক্তিগত প্রয়োজনীয়তা', techDesc: 'সর্বোত্তম অভিজ্ঞতার জন্য স্থিতিশীল ইন্টারনেট, হেডফোন এবং শান্ত পরিবেশ সুপারিশকৃত।', etiquette: 'আচরণ নীতি', etiquetteDesc: 'অনুগ্রহ করে আপনার মাইক্রোফোন নিঃশব্দ রাখুন যতক্ষণ না আপনাকে নির্দেশ দেওয়া হয়। ক্যামেরা ঐচ্ছিক কিন্তু উৎসাহিত।', timeRemaining: 'বাকি সময়', quote: '"প্রার্থনা হল মানুষের সর্বোচ্চ শক্তি।"', active: 'সক্রিয়' },
+    events: { pageTitle: 'আসন্ন অনুষ্ঠান', subtitle: 'অনুষ্ঠান ও কার্যক্রম', desc: 'আমাদের আন্তর্জাতিক সম্প্রদায়ে যোগ দিন যেখানে সম্মিলিত আধ্যাত্মিক অনুশীলন এবং শিক্ষামূলক কর্মশালা আয়োজন করা হয়।', viewDetails: 'বিস্তারিত দেখুন', joinLink: 'যুক্ত হন', category: 'বিভাগ', date: 'তারিখ', time: 'সময়', location: 'স্থান', description: 'বর্ণনা', virtualEventLink: 'অনলাইন ইভেন্ট লিঙ্ক', joinOnline: 'অনলাইন প্রার্থনায় যোগ দিন', close: 'বন্ধ করুন', upcoming: 'আসন্ন', ongoing: 'চলমান' },
+    about: { pageTitle: 'আমাদের সম্পর্কে', subtitle: 'সংগঠনের বিবরণ ও মিশন', orgDescription: 'সংগঠনের বিবরণ', orgName: 'সংগঠনের নাম', nameBn: 'বাংলায়: বিবেকানন্দ বেদান্ত কেন্দ্র—বিবেক', nameEn: 'ইংরেজিতে: বিবেকানন্দ আন্তর্জাতিক মূল্যবোধ ও শিক্ষা কেন্দ্র—বিবেক', foundedDate: 'প্রতিষ্ঠা দিবস', foundedDesc: 'প্রায় ১৩ বছর (२०११ সাল থেকে) আনুষ্ঠানিকভাবে কার্যক্রম পরিচালনার পর २०२४ সালের ১ জানুয়ারি থেকে এই সংগঠন আনুষ্ঠানিক যাত্রা শুরু করে। সুতরাং প্রয়োজন হলে ১ জানুয়ারি সংগঠনের প্রতিষ্ঠা দিবস হিসেবে উদযাপিত হবে।', address: 'সংগঠনের ঠিকানা', addressOnline: 'অনলাইন: ওয়েবসাইট: http://vivekfoundation.org', orgType: 'সংগঠনের ধরন', orgTypeDesc: 'অরাজনৈতিক, অলাভজনক, সেবামূলক বেসরকারি প্রতিষ্ঠান', ideology: 'আদর্শ ও উদ্দেশ্য', ideologyTitle: 'আদর্শ', ideologyDesc: 'বিবেকানন্দের জীবন ও বাণী এই সংগঠনের আদর্শ। "ভালো মানুষ হও এবং অন্যকে ভালো মানুষ হতে সহায়তা করা"—স্বামী বিবেকানন্দের এই বাণীকে আদর্শ মেনে নিজেকে প্রকৃত মানুষ হিসেবে গড়ে তোলার চেষ্টা করা এবং অন্যদেরকে প্রকৃত মানুষ হিসেবে গড়ে উঠতে সহায়তা করা এই সংগঠনের প্রধান কাজ।', objectives: 'উদ্দেশ্য', objectivesDesc: 'নিজেকে প্রকৃত মানুষ হিসেবে গড়ে তোলার প্রচেষ্টার পাশাপাশি মানবসেবার মাধ্যমে নিজের এবং জগতের কল্যাণ করা এই সংগঠনের উদ্দেশ্য:', objectiveList: [ 'সেবাকার্যক্রমের মাধ্যমে কিছু জাগ্রত বিবেকের যুব-সমাজ গঠন করা', 'পিছিয়ে পড়া বা সুবিধাবঞ্চিত ছেলেমেয়েদের সুবিধা প্রদানের মাধ্যমে সুনাগরিক হিসেবে গড়ে উঠতে সহায়তা করা', 'প্রকৃত মানুষ হিসেবে গড়ে ওঠার প্রচেষ্টায় সমাজের সর্বস্তরের জাতি, ধর্ম, বর্ণ, বয়স নির্বিশেষে সকলকে সকল ধরনের সহযোগিতা প্রদান করা', 'মানব সেবার কার্যক্রমে পিছিয়ে পড়া, ছিন্নমূল, সুবিধা-বঞ্চিত, সংখ্যালঘু, উপজাতি সম্প্রদায়কে প্রাধান্য দিয়ে কাজ করা' ], foundersTitle: 'প্রতিষ্ঠাতা ও সদস্যদের পরিচয়', foundersDesc: 'এই সংগঠনের একক কোন প্রতিষ্ঠাতা নেই। সময়ের দাবিতে যারা এই সংগঠনের কাজ করবেন সকলেই এই সংগঠনের গুরুত্বপূর্ণ সদস্য। সংগঠনের কোন উল্লেখযোগ্য পদ-পদবী থাকবে না। নীতিমালা অনুযায়ী বিভিন্ন সময়ে বিভিন্ন স্বেচ্ছাসেবী কর্মীদের বিভিন্ন দায়িত্বে নিয়োগ করা হবে, তবে কোন সদস্য সমাজে কিংবা সাধারণ মানুষের কাছে দাপ্তরিক পদবী ব্যবহার বা প্রচার করতে পারবেন না। সংগঠনের প্রত্যেক স্বেচ্ছাসেবী সংগঠনের প্রতিনিধি হিসেবে নিজেকে একজন "বিবেকানুরাগী" হিসেবে পরিচয় প্রদান করবেন।', activitiesTitle: 'সংগঠনের কার্যক্রম', activitiesDesc: 'সংগঠনের কার্যক্রম প্রধানত দুই ভাগে বিভক্ত হয়:', selfDevelopment: 'আত্ম-উন্নয়নমূলক কার্যক্রম', selfDevelopmentList: [ 'পাঠচক্র (সাপ্তাহিক বা মাসিক)', 'বই পড়া কার্যক্রম', 'শিক্ষামূলক কোর্স, সেমিনার বা ওয়ার্কশপ আয়োজন', 'মেডিটেশন, যোগব্যায়াম ইত্যাদি শারীরিক ও মানসিক উন্নয়নের সহায়ক কার্যক্রম পরিচালনা', 'বিভিন্ন দিবস বা উৎসব উপলক্ষে শিশু-কিশোর, যুবকদের মাঝে আত্ম-বিকাশমূলক প্রতিযোগিতা যেমন: চিত্রাঙ্কন, কুইজ, আবৃত্তি, বিতর্ক, অলিম্পিয়াড, সংগীত ইত্যাদি আয়োজন' ], serviceActivities: 'সেবামূলক কার্যক্রম', serviceActivitiesList: [ 'শিক্ষা সেবা: বিনামূল্যে শিক্ষা উপকরণ বিতরণ', 'চিকিৎসা সেবা: বিনামূল্যে প্রাথমিক চিকিৎসা সেবা এবং ঔষধ বিতরণ', 'বিভিন্ন উৎসবে নতুন পোশাক বিতরণ', 'দুর্যোগ ও ত্রাণ ব্যবস্থা: প্রতিকূল অবস্থা বা অভুক্তদের খাদ্য ব্যবস্থা করা', 'যেকোনো মানবতা সেবা অংশগ্রহণ' ] }
+  }
+};
+
+export const QUOTES = [ "Arise, awake, and stop not until the goal is reached.", "Strength is Life, Weakness is Death.", "Believe in yourself and the world will be at your feet.", "The greatest sin is to think yourself weak.", "You cannot believe in God until you believe in yourself.", "All the powers in the universe are already ours. It is we who have put our hands before our eyes and cry that it is dark.", "Purity, patience, and perseverance are the three essentials to success and, above all, love." ];
+
+export const MOCK_EVENTS: Event[] = [
+  
+  {
+    id: '2',
+    title: 'Youth Leadership Workshop',
+    titleBn: 'যুব নেতৃত্ব কর্মশালা',
+    date: 'Jan 20, 2025',
+    time: '5:00 PM UTC',
+    location: 'Virtual & In-person',
+    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
+    category: 'Event',
+    description: 'Join us for an interactive workshop on leadership and personal development based on Swami Vivekananda\'s teachings.',
+    descriptionBn: 'স্বামী বিবেকানন্দের শিক্ষার উপর ভিত্তি করে নেতৃত্ব এবং ব্যক্তিগত উন্নয়নের একটি ইন্টারেক্টিভ কর্মশালায় আমাদের সাথে যোগ দিন।',
+    meetingLink: 'https://zoom.us/j/your-meeting-id',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: '3',
+    title: 'Monthly Study Circle',
+    titleBn: 'মাসিক অধ্যয়ন বৃত্ত',
+    date: 'Jan 25, 2025',
+    time: '7:00 PM UTC',
+    location: 'Online',
+    locationBn: 'অনলাইন',
+    category: 'Event',
+    description: 'Monthly discussion on Swami Vivekananda\'s complete works and their application in modern life.',
+    descriptionBn: 'স্বামী বিবেকানন্দের সম্পূর্ণ রচনা এবং আধুনিক জীবনে তাদের প্রয়োগ সম্পর্কে মাসিক আলোচনা।',
+    meetingLink: 'https://meet.google.com/your-meeting-code',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: '4',
+    title: "Swamiji's Birthday Celebration",
+    titleBn: "স্বামীজির জন্মদিন উৎসব",
+    date: 'Jan 12, 2025',
+    time: '5:00 PM UTC',
+    location: 'Virtual & In-person',
+    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
+    category: 'Event',
+    description: 'Join us for a grand celebration of Swami Vivekananda\'s birth anniversary with spiritual programs, devotional singing, and inspiring discourses on his life and teachings.',
+    descriptionBn: 'স্বামী বিবেকানন্দের জন্মবার্ষিকী উপলক্ষে আমাদের সাথে যোগ দিন এবং আধ্যাত্মিক অনুষ্ঠান, ভক্তিমূলক গান এবং তার জীবন ও শিক্ষার উপর অনুপ্রেরণামূলক আলোচনা উপভোগ করুন।',
+    meetingLink: 'https://zoom.us/j/your-meeting-id',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: '5',
+    title: 'Women Empowerment Workshop',
+    titleBn: 'নারী ক্ষমতায়ন কর্মশালা',
+    date: 'Mar 20, 2025',
+    time: '5:30 PM UTC',
+    location: 'Virtual & In-person',
+    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
+    category: 'Event',
+    description: 'A comprehensive workshop on women empowerment, leadership, and personal growth inspired by Swami Vivekananda\'s teachings on universal equality and women\'s potential.',
+    descriptionBn: 'স্বামী বিবেকানন্দের সার্বজনীন সমতা এবং নারী সম্ভাবনার শিক্ষার উপর ভিত্তি করে নারী ক্ষমতায়ন, নেতৃত্ব এবং ব্যক্তিগত বৃদ্ধি সম্পর্কে একটি বিস্তৃত কর্মশালা।',
+    meetingLink: 'https://zoom.us/j/9876543210',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+  }
+];
+
+export const MOCK_LIBRARY: LibraryItem[] = [ { id: 'l1', title: 'Letter to Alasinga Perumal', category: 'Letters', author: 'Swami Vivekananda', description: 'A fundamental piece of correspondence regarding the future of India.', content: '...Work on with even more energy. Be brave and face everything — come what may, have faith that you will succeed in the end.' } ];
+
+export const SCHOLARSHIPS: Scholarship[] = [
+  {
+    id: 'education-merit',
+    name: "Vivek – Education & Merit Development Scholarship",
+    nameBn: "'বিবেক'–শিক্ষা ও মেধাবিকাশ বৃত্তি",
+    description: 'Supporting meritorious students with excellent academic performance who lack financial resources. This scholarship provides comprehensive educational support.',
+    descriptionBn: 'চমৎকার একাডেমিক পারফরম্যান্স সম্পন্ন মেধাবী শিক্ষার্থীদের যারা আর্থিক সহায়তা প্রয়োজন তাদের সমর্থন করে। এই বৃত্তি ব্যাপক শিক্ষাগত সহায়তা প্রদান করে।',
+    eligibility: 'Min 75% academic performance, family income < ₹5,00,000/year, age 14-25 years',
+    eligibilityBn: 'ন্যূনতম ৭৫% একাডেমিক পারফরম্যান্স, পারিবারিক আয় < ₹৫,००,००० /বছর, বয়স १४-২৫ বছর',
+    amount: '₹5,000 - ₹15,000 per year',
+    amountBn: '₹৫,০০০ - ₹১৫,০০০ প্রতি বছর',
+    deadline: 'Rolling admissions',
+    deadlineBn: 'সারা বছর আবেদন গ্রহণ',
+    benefits: ['Full/Partial tuition support', 'Study materials allowance', 'Mentorship program', 'Career guidance'],
+    benefitsBn: ['সম্পূর্ণ/আংশিক টিউশন সহায়তা', 'অধ্যয়ন সামগ্রী ভাতা', 'মেন্টরশিপ কর্মসূচি', 'ক্যারিয়ার নির্দেশনা']
+  },
+  {
+    id: 'medical-service',
+    name: "''Vivek'–Medical Service Scholarship",
+    nameBn: "'বিবেক'–চিকিৎসা সেবা বৃত্তি",
+    description: 'Supporting medical students and aspiring healthcare professionals to pursue their studies and serve the community. This scholarship focuses on those committed to healthcare service.',
+    descriptionBn: 'চিকিৎসা শিক্ষার্থী এবং আকাঙ্ক্ষী স্বাস্থ্যসেবা পেশাদারদের তাদের অধ্যয়ন পরিচালনা এবং সম্প্রদায়কে সেবা দিতে সমর্থন করে। এই বৃত্তি স্বাস্থ্যসেবা সেবায় প্রতিশ্রুতিবদ্ধদের উপর দৃষ্টি নিবদ্ধ করে।',
+    eligibility: 'NEET qualified or pursuing medical studies, family income < ₹8,00,000/year, age 17-30 years',
+    eligibilityBn: 'NEET যোগ্য বা চিকিৎসা অধ্যয়নরত, পারিবারিক আয় < ₹৮,০০,০০০ /বছর, বয়স ১৭-৩০ বছর',
+    amount: '₹15,000 - ₹30,000 per year',
+    amountBn: '₹১৫,০০০ - ₹৩০,০০০ প্রতি বছর',
+    deadline: 'Quarterly selection',
+    deadlineBn: 'ত্রৈমাসিক নির্বাচন',
+    benefits: ['Medical course tuition support', 'Books & practical expenses', 'Research opportunities', 'Internship stipend'],
+    benefitsBn: ['চিকিৎসা কোর্স টিউশন সহায়তা', 'বই এবং ব্যবহারিক খরচ', 'গবেষণা সুযোগ', 'ইন্টার্নশিপ বৃত্তি']
+  },
+  {
+    id: 'vivekananda-study',
+    name: "Bibek Charcha Fund",
+    nameBn: "বিবেকানন্দ চর্চা ফান্ড",
+    description: 'Dedicated to students pursuing philosophy, spirituality, and Vedantic studies inspired by Swami Vivekananda. Supports research and academic work in these fields.',
+    descriptionBn: 'স্বামী বিবেকানন্দ দ্বারা অনুপ্রাণিত দর্শন, আধ্যাত্মিকতা এবং বেদান্তিক অধ্যয়ন অনুসরণকারী শিক্ষার্থীদের জন্য নিবেদিত। এই ক্ষেত্রগুলিতে গবেষণা এবং একাডেমিক কাজকে সমর্থন করে।',
+    eligibility: 'Philosophy/spirituality/Vedanta students, family income < ₹6,00,000/year, passionate about Swami Vivekananda\'s teachings',
+    eligibilityBn: 'দর্শন/আধ্যাত্মিকতা/বেদান্ত শিক্ষার্থী, পারিবারিক আয় < ₹৬,০০,০০০ /বছর, স্বামী বিবেকানন্দের শিক্ষার প্রতি আবেগপ্রবণ',
+    amount: '₹3,000 - ₹10,000 per year',
+    amountBn: '₹৩,০০০ - ₹১০,০০০ প্রতি বছর',
+    deadline: 'Rolling admissions',
+    deadlineBn: 'সারা বছর আবেদন গ্রহণ',
+    benefits: ['Study materials support', 'Research assistance', 'Spiritual mentorship', 'Publication support'],
+    benefitsBn: ['অধ্যয়ন সামগ্রী সহায়তা', 'গবেষণা সহায়তা', 'আধ্যাত্মিক মেন্টরশিপ', 'প্রকাশনা সহায়তা']
+  }
+];
