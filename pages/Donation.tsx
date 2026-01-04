@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '../App';
 import { dbService } from '../services/dbService';
@@ -17,10 +16,10 @@ const Donation: React.FC = () => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const bankDetails = {
-    accountName: 'abc',
-    bankName: 'abc bank',
-    accountNumber: 'xxxxxxxx',
-    swiftCode: 'yyyyyyy'
+    accountName: 'VIVEK Foundation',
+    bankName: 'Global Bank',
+    accountNumber: 'xxxx-xxxx-xxxx-xxxx',
+    swiftCode: 'VIVEKXYZ'
   };
 
   const copyToClipboard = (text: string, field: string) => {
@@ -44,245 +43,430 @@ const Donation: React.FC = () => {
   };
 
   return (
-    <div className="py-24 bg-[#FCFAF7] min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-amber-600 font-black tracking-[0.3em] uppercase text-xs mb-4 block animate-fade-in">
-            {lang === 'bn' ? 'সেবা এবং অবদান' : 'Seva & Contribution'}
-          </span>
-          <h1 className="text-5xl md:text-7xl font-black text-[#1E1B4B] mb-6 tracking-tighter">
-            {lang === 'bn' ? 'আমাদের ভিশন সমর্থন করুন' : 'Support Our Vision.'}
-            <span className="serif italic text-amber-600 underline decoration-amber-200 underline-offset-8 ml-2">{lang === 'bn' ? '' : ''}</span>
+    <div className="pt-24 overflow-hidden bg-gradient-to-b from-white to-slate-50 min-h-screen">
+      {/* Hero Section - Minimal, Focused */}
+      <section className="relative px-4 pb-20 pt-12 min-h-[50vh] flex items-center overflow-hidden bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900">
+        {/* Animated Background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-emerald-400 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob"></div>
+          <div className="absolute -bottom-20 right-1/3 w-96 h-96 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-emerald-950/50"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10 w-full px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-xl text-emerald-300 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20 shadow-xl mb-8">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-400 animate-pulse"></span>
+            💝 {lang === 'bn' ? 'দান করুন এবং পরিবর্তন করুন' : 'Give & Create Change'}
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 leading-[0.95] tracking-tighter">
+            {lang === 'bn' ? 'আমাদের ভিশন সমর্থন করুন' : 'Support Our Vision'}
           </h1>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-lg md:text-xl text-emerald-50 leading-relaxed font-light max-w-3xl mx-auto">
             {lang === 'bn'
-              ? '"যারা অন্যদের জন্য বাঁচেন শুধু তারাই প্রকৃত প্রাণবন্ত, বাকিরা তো আর বেশি কিছুই নয়।" — স্বামী বিবেকানন্দ'
-              : '"They only live who live for others, the rest are more dead than alive." — Swami Vivekananda'}
+              ? 'আপনার অবদান প্রকৃত মানুষ গঠন এবং মানবসেবার আমাদের মিশনকে শক্তিশালী করে। প্রতিটি দান সরাসরি শিক্ষা, স্বাস্থ্য এবং আধ্যাত্মিক বৃদ্ধিকে সমর্থন করে।'
+              : 'Your contribution empowers our mission to develop true human beings and serve humanity. Every donation directly supports education, healthcare, and spiritual growth.'}
           </p>
+
+          <button 
+            onClick={() => document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' })}
+            className="mt-10 px-10 py-5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-2xl font-black text-lg transition-all hover:shadow-2xl hover:shadow-emerald-500/50 transform hover:-translate-y-1 hover:scale-105 inline-flex items-center gap-3"
+          >
+            <i className="fa-solid fa-heart"></i>
+            {lang === 'en' ? 'Donate Now' : 'এখনই দান করুন'}
+          </button>
+        </div>
+      </section>
+
+      {/* Impact Stats */}
+      <section id="impact" className="py-28 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-20 w-64 h-64 bg-emerald-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-64 h-64 bg-green-200/20 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Steps Indicator */}
-        <div className="flex justify-center mb-16">
-          <div className="flex items-center gap-4 bg-white px-8 py-4 rounded-full shadow-sm border border-slate-100">
-            <div className="flex items-center gap-2">
-              <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${success ? 'bg-emerald-500 text-white' : 'saffron-gradient text-white'}`}>1</span>
-              <span className="text-sm font-bold text-slate-600">{lang === 'bn' ? 'তহবিল স্থানান্তর করুন' : 'Transfer Funds'}</span>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-5 py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border border-emerald-200">
+              📊 {lang === 'en' ? 'Fund Allocation' : 'তহবিল বরাদ্দ'}
             </div>
-            <div className="w-12 h-px bg-slate-200"></div>
-            <div className="flex items-center gap-2">
-              <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${success ? 'saffron-gradient text-white' : 'bg-slate-100 text-slate-400'}`}>2</span>
-              <span className={`text-sm font-bold ${success ? 'text-slate-600' : 'text-slate-400'}`}>{lang === 'bn' ? 'লেনদেন যাচাই করুন' : 'Verify Transaction'}</span>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1E1B4B] mb-6 tracking-tight">
+              {lang === 'en' ? 'Where Your Donation Makes Impact' : 'আপনার দান কোথায় প্রভাব ফেলে'}
+            </h2>
+            <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+              {lang === 'en' 
+                ? 'Every rupee donated directly supports our three core mission areas. Your contribution creates measurable, lasting change.'
+                : 'প্রতিটি দান সরাসরি আমাদের তিনটি মূল মিশন এলাকাকে সমর্থন করে। আপনার অবদান পরিমাপযোগ্য, দীর্ঘস্থায়ী পরিবর্তন সৃষ্টি করে।'}
+            </p>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Step 1: Bank Details Card */}
-          <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl border border-slate-100 relative group overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 saffron-gradient opacity-5 rounded-bl-[100%]"></div>
-             
-             <div className="flex items-center gap-4 mb-10">
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl shadow-inner">
-                  <i className="fa-solid fa-building-columns"></i>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-black text-[#1E1B4B]">{lang === 'bn' ? 'ধাপ ১: ব্যাংক বিবরণ' : 'Step 1: Bank Details'}</h2>
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">{lang === 'bn' ? 'বৈশ্বিক সরাসরি স্থানান্তর' : 'Global Direct Transfer'}</p>
-                </div>
-             </div>
-
-             <div className="space-y-4 mb-10">
-                {[
-                  { label: lang === 'bn' ? 'অ্যাকাউন্ট নাম' : 'Account Name', value: bankDetails.accountName, key: 'name' },
-                  { label: lang === 'bn' ? 'ব্যাংক নাম' : 'Bank Name', value: bankDetails.bankName, key: 'bank' },
-                  { label: lang === 'bn' ? 'অ্যাকাউন্ট সংখ্যা' : 'Account Number', value: bankDetails.accountNumber, key: 'acc' },
-                  { label: lang === 'bn' ? 'SWIFT / IFSC কোড' : 'SWIFT / IFSC Code', value: bankDetails.swiftCode, key: 'swift' }
-                ].map((detail) => (
-                  <div key={detail.key} className="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex justify-between items-center group/item hover:bg-white hover:border-amber-200 transition-all">
-                    <div>
-                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{detail.label}</div>
-                      <div className="text-base font-bold text-slate-800">{detail.value}</div>
-                    </div>
-                    <button 
-                      onClick={() => copyToClipboard(detail.value, detail.key)}
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${copiedField === detail.key ? 'bg-emerald-500 text-white' : 'bg-slate-200/50 text-slate-500 hover:bg-amber-600 hover:text-white'}`}
-                    >
-                      <i className={`fa-solid ${copiedField === detail.key ? 'fa-check' : 'fa-copy'} text-xs`}></i>
-                    </button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                title: lang === 'en' ? 'Education & Scholarships' : 'শিক্ষা ও বৃত্তি', 
+                percentage: '40%', 
+                desc: lang === 'en' ? 'Funding schools, scholarships, and learning programs for underprivileged youth' : 'অসুবিধাপ্রাপ্ত যুবকদের জন্য স্কুল, বৃত্তি এবং শিক্ষা কর্মসূচি',
+                icon: 'fa-graduation-cap',
+                color: 'from-blue-400 to-cyan-500',
+                impact: lang === 'en' ? '5000+ Students Reached' : '৫০০০+ শিক্ষার্থী'
+              },
+              { 
+                title: lang === 'en' ? 'Healthcare & Wellness' : 'স্বাস্থ্যসেবা ও সুস্থতা', 
+                percentage: '35%', 
+                desc: lang === 'en' ? 'Medical camps, health awareness, and emergency relief programs' : 'চিকিৎসা শিবির, স্বাস্থ্য সচেতনতা এবং জরুরি ত্রাণ কর্মসূচি',
+                icon: 'fa-heart-pulse',
+                color: 'from-red-400 to-pink-500',
+                impact: lang === 'en' ? '10000+ Lives Touched' : '১০০০০+ জীবন স্পর্শ করা'
+              },
+              { 
+                title: lang === 'en' ? 'Spiritual Growth' : 'আধ্যাত্মিক বৃদ্ধি', 
+                percentage: '25%', 
+                desc: lang === 'en' ? 'Study circles, meditation programs, and community gatherings' : 'অধ্যয়ন সমাবেশ, ধ্যান কর্মসূচি এবং সম্প্রদায় সমাবেশ',
+                icon: 'fa-om',
+                color: 'from-purple-400 to-indigo-500',
+                impact: lang === 'en' ? '3000+ Members' : '৩০০০+ সদস্য'
+              }
+            ].map((item, i) => (
+              <div key={i} className="group relative">
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color}/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                <div className={`relative bg-gradient-to-br ${item.color} bg-opacity-5 rounded-3xl p-10 border-2 border-white/60 group-hover:border-opacity-100 hover:shadow-2xl transition-all duration-300 h-full flex flex-col`}>
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <i className={`fa-solid ${item.icon}`}></i>
                   </div>
-                ))}
-             </div>
-             
-             <div className="p-6 bg-indigo-50 rounded-3xl border border-indigo-100 flex gap-4">
-                <i className="fa-solid fa-circle-info text-indigo-600 mt-1"></i>
-                <div>
-                  <h4 className="font-black text-indigo-900 text-sm mb-1">{lang === 'bn' ? 'নির্দেশাবলী' : 'Instructions'}</h4>
-                  <p className="text-xs text-indigo-700 leading-relaxed">
-                    {lang === 'bn'
-                      ? 'আপনার ব্যাংকিং অ্যাপ ব্যবহার করে স্থানান্তর করুন। সম্পন্ন হওয়ার পর, একটি স্ক্রিনশট নিন বা '
-                      : 'Make your transfer using your banking app. Once completed, take a screenshot or note down the '}
-                    <strong>{lang === 'bn' ? 'লেনদেন আইডি' : 'Transaction ID'}</strong>. 
-                    {lang === 'bn' 
-                      ? ' যাচাইকরণ ফর্মের জন্য এটি প্রয়োজন হবে।'
-                      : ' You will need it for the verification form.'}
-                  </p>
+                  <h3 className="text-2xl font-black text-[#1E1B4B] mb-2">{item.title}</h3>
+                  <p className="text-emerald-600 text-xs font-bold uppercase tracking-widest mb-4">{item.impact}</p>
+                  <p className="text-slate-700 text-sm leading-relaxed flex-grow mb-6">{item.desc}</p>
+                  <div className="flex items-center gap-3 pt-6 border-t border-slate-200">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                      <span className="text-2xl font-black text-[#1E1B4B]">{item.percentage}</span>
+                    </div>
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">{lang === 'en' ? 'of Every Donation' : 'প্রতিটি দান'}</span>
+                  </div>
                 </div>
-             </div>
+              </div>
+            ))}
           </div>
 
-          {/* Step 2: Submission Form */}
-          <div className="relative">
-             <div className={`bg-slate-900 rounded-[3rem] p-8 md:p-12 shadow-2xl text-white transition-all duration-700 ${success ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 text-amber-500 flex items-center justify-center text-2xl shadow-inner">
+          {/* Progress Bar */}
+          <div className="mt-20 max-w-2xl mx-auto">
+            <h3 className="text-xl font-black text-[#1E1B4B] mb-8 text-center">
+              {lang === 'en' ? 'This Year\'s Progress' : 'এই বছরের অগ্রগতি'}
+            </h3>
+            <div className="space-y-6">
+              {[
+                { label: lang === 'en' ? 'Education' : 'শিক্ষা', percent: 75, color: 'from-blue-400 to-cyan-500' },
+                { label: lang === 'en' ? 'Healthcare' : 'স্বাস্থ্যসেবা', percent: 60, color: 'from-red-400 to-pink-500' },
+                { label: lang === 'en' ? 'Spiritual Programs' : 'আধ্যাত্মিক কর্মসূচি', percent: 85, color: 'from-purple-400 to-indigo-500' }
+              ].map((item, i) => (
+                <div key={i}>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-black text-slate-700">{item.label}</span>
+                    <span className="text-sm font-bold text-slate-600">{item.percent}%</span>
+                  </div>
+                  <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+                    <div 
+                      className={`h-full bg-gradient-to-r ${item.color} transition-all duration-1000 ease-out`}
+                      style={{ width: `${item.percent}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Donation Form Section - MAIN FOCUS */}
+      <section id="donation-form" className="py-32 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-10 w-40 h-40 bg-emerald-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-10 w-40 h-40 bg-green-100/30 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-5 py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border border-emerald-200">
+              ✨ {lang === 'en' ? 'Ready to Give?' : 'দান করতে প্রস্তুত?'}
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-[#1E1B4B] mb-6 tracking-tight">
+              {lang === 'en' ? 'Make Your Donation' : 'আপনার দান করুন'}
+            </h2>
+            <p className="text-slate-700 text-xl max-w-2xl mx-auto leading-relaxed">
+              {lang === 'en'
+                ? 'Two simple steps to make a direct impact on lives'
+                : 'জীবনে সরাসরি প্রভাব ফেলার জন্য দুটি সহজ ধাপ'}
+            </p>
+          </div>
+
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Step 1: Bank Details */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative bg-white rounded-3xl p-12 border-2 border-emerald-100 group-hover:border-emerald-300 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center text-white text-3xl shadow-lg">
+                    <i className="fa-solid fa-building-columns"></i>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-black text-[#1E1B4B]">{lang === 'en' ? 'Step 1' : 'ধাপ ১'}</h3>
+                    <p className="text-emerald-700 text-xs font-bold uppercase tracking-widest">{lang === 'en' ? 'Bank Details' : 'ব্যাংক বিবরণ'}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-12">
+                  {[
+                    { label: lang === 'en' ? 'Account Name' : 'অ্যাকাউন্ট নাম', value: bankDetails.accountName, key: 'name' },
+                    { label: lang === 'en' ? 'Bank Name' : 'ব্যাংকের নাম', value: bankDetails.bankName, key: 'bank' },
+                    { label: lang === 'en' ? 'Account Number' : 'অ্যাকাউন্ট নম্বর', value: bankDetails.accountNumber, key: 'acc' },
+                    { label: 'SWIFT / IFSC Code', value: bankDetails.swiftCode, key: 'swift' }
+                  ].map((detail) => (
+                    <div key={detail.key} className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 flex justify-between items-center group/item hover:bg-emerald-100 hover:border-emerald-300 transition-all">
+                      <div>
+                        <div className="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-1">{detail.label}</div>
+                        <div className="text-lg font-bold text-[#1E1B4B]">{detail.value}</div>
+                      </div>
+                      <button 
+                        onClick={() => copyToClipboard(detail.value, detail.key)}
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${copiedField === detail.key ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-500 hover:bg-emerald-500 hover:text-white'}`}
+                      >
+                        <i className={`fa-solid ${copiedField === detail.key ? 'fa-check' : 'fa-copy'} text-xs`}></i>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-6 bg-emerald-100 rounded-2xl border border-emerald-200 flex gap-4">
+                  <i className="fa-solid fa-lightbulb text-emerald-700 text-xl flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 className="font-black text-emerald-900 text-sm mb-2">{lang === 'en' ? 'How to Send' : 'কিভাবে পাঠাবেন'}</h4>
+                    <p className="text-xs text-emerald-800 leading-relaxed">
+                      {lang === 'en'
+                        ? 'Use your bank app or online banking to transfer money to these details. Save your transaction ID after the transfer - you\'ll need it in Step 2.'
+                        : 'আপনার ব্যাংক অ্যাপ বা অনলাইন ব্যাংকিং ব্যবহার করে এই বিবরণে অর্থ স্থানান্তর করুন। স্থানান্তরের পরে আপনার লেনদেন আইডি সংরক্ষণ করুন - ধাপ ২-তে এটি প্রয়োজন হবে।'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: Verification Form */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-teal-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className={`relative bg-white rounded-3xl p-12 border-2 border-green-100 group-hover:border-green-300 hover:shadow-2xl transition-all duration-300 ${success ? 'hidden' : ''}`}>
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-white text-3xl shadow-lg">
                     <i className="fa-solid fa-file-invoice-dollar"></i>
                   </div>
                   <div>
-                    <h2 className="text-2xl font-black">{lang === 'bn' ? 'ধাপ ২: যাচাইকরণ' : 'Step 2: Verification'}</h2>
-                    <p className="text-indigo-400 text-[10px] font-black uppercase tracking-widest">{lang === 'bn' ? 'আমাদের আপনার উপহার সম্পর্কে অবহিত করুন' : 'Inform us of your gift'}</p>
+                    <h3 className="text-3xl font-black text-[#1E1B4B]">{lang === 'en' ? 'Step 2' : 'ধাপ ২'}</h3>
+                    <p className="text-green-700 text-xs font-bold uppercase tracking-widest">{lang === 'en' ? 'Verify & Submit' : 'যাচাই ও জমা দিন'}</p>
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2">
-                    <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{lang === 'bn' ? 'দাতার নাম' : 'Donor Name'}</label>
+                    <label className="text-xs font-black text-slate-600 uppercase tracking-widest ml-1">{lang === 'en' ? 'Full Name' : 'সম্পূর্ণ নাম'}</label>
                     <input
                       required
                       value={formData.donorName}
                       onChange={e => setFormData({...formData, donorName: e.target.value})}
                       type="text" 
-                      className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                      placeholder={lang === 'bn' ? 'আপনার সম্পূর্ণ নাম' : 'Your Full Name'} 
+                      className="w-full px-5 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all font-semibold" 
+                      placeholder={lang === 'en' ? 'Your name' : 'আপনার নাম'}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{lang === 'bn' ? 'ইমেল' : 'Email'}</label>
+                    <label className="text-xs font-black text-slate-600 uppercase tracking-widest ml-1">{lang === 'en' ? 'Email Address' : 'ইমেল ঠিকানা'}</label>
                     <input
                       required
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
                       type="email" 
-                      className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                      placeholder={lang === 'bn' ? 'আপনার ইমেল' : 'Your Email'} 
+                      className="w-full px-5 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all font-semibold" 
+                      placeholder={lang === 'en' ? 'your@email.com' : 'আপনার@ইমেইল.কম'}
                     />
                   </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                  <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{lang === 'bn' ? 'পরিমাণ' : 'Amount'}</label>
-                      <div className="relative">
-                        <span className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 font-black">$</span>
-                        <input
-                          required
-                          value={formData.amount}
-                          onChange={e => setFormData({...formData, amount: e.target.value})}
-                          type="text" 
-                          className="w-full pl-12 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                          placeholder="0.00" 
-                        />
-                      </div>
+                      <label className="text-xs font-black text-slate-600 uppercase tracking-widest ml-1">{lang === 'en' ? 'Amount ($)' : 'পরিমাণ ($)'}</label>
+                      <input
+                        required
+                        value={formData.amount}
+                        onChange={e => setFormData({...formData, amount: e.target.value})}
+                        type="text" 
+                        className="w-full px-5 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all font-semibold" 
+                        placeholder="100"
+                      />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{lang === 'bn' ? 'লেনদেন আইডি' : 'Transaction ID'}</label>
+                      <label className="text-xs font-black text-slate-600 uppercase tracking-widest ml-1">{lang === 'en' ? 'Transaction ID' : 'লেনদেন আইডি'}</label>
                       <input
                         required
                         value={formData.transactionId}
                         onChange={e => setFormData({...formData, transactionId: e.target.value})}
                         type="text" 
-                        className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                        placeholder="Ref #12345" 
+                        className="w-full px-5 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all font-semibold" 
+                        placeholder="Ref #12345"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{lang === 'bn' ? 'অতিরিক্ত নোট' : 'Additional Notes'}</label>
+                    <label className="text-xs font-black text-slate-600 uppercase tracking-widest ml-1">{lang === 'en' ? 'Message (Optional)' : 'বার্তা (ঐচ্ছিক)'}</label>
                     <textarea
                       value={formData.notes}
                       onChange={e => setFormData({...formData, notes: e.target.value})}
-                      className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 outline-none resize-none transition-all placeholder:text-slate-600 font-bold" 
-                      rows={3} 
-                      placeholder={lang === 'bn' ? 'ঐচ্ছিক বার্তা...' : 'Optional message...'}
+                      className="w-full px-5 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none resize-none transition-all font-semibold" 
+                      rows={2} 
+                      placeholder={lang === 'en' ? 'Why are you giving? (optional)' : 'কেন দিচ্ছেন? (ঐচ্ছিক)'}
                     ></textarea>
                   </div>
 
                   <button 
                     disabled={isSubmitting}
                     type="submit" 
-                    className="w-full py-5 saffron-gradient text-white rounded-[1.5rem] font-black text-lg shadow-2xl shadow-orange-900/50 hover:-translate-y-1 transition-all flex items-center justify-center gap-3 shine-effect disabled:opacity-50"
+                    className="w-full py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl font-black text-lg uppercase tracking-wide shadow-lg hover:shadow-2xl hover:shadow-green-500/30 transition-all hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   >
-                    {isSubmitting ? (lang === 'bn' ? 'প্রক্রিয়াকরণ...' : 'Processing...') : (lang === 'bn' ? 'দান সম্পূর্ণ করুন' : 'Complete Donation')}
-                    <i className="fa-solid fa-paper-plane text-sm"></i>
+                    {isSubmitting ? (
+                      <>
+                        <i className="fa-solid fa-spinner fa-spin"></i>
+                        {lang === 'en' ? 'Processing...' : 'প্রক্রিয়াকরণ...'}
+                      </>
+                    ) : (
+                      <>
+                        <i className="fa-solid fa-heart"></i>
+                        {lang === 'en' ? 'Confirm Donation' : 'দান নিশ্চিত করুন'}
+                      </>
+                    )}
                   </button>
                 </form>
-             </div>
+              </div>
 
-             {/* Success View */}
-             {success && (
-               <div className="absolute inset-0 bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl flex flex-col items-center justify-center text-center animate-in zoom-in duration-500 border border-emerald-100">
+              {/* Success State */}
+              {success && (
+                <div className="relative bg-white rounded-3xl p-12 flex flex-col items-center justify-center text-center animate-in zoom-in duration-500 border-2 border-green-200 shadow-2xl">
                   <div className="relative mb-10">
-                    <div className="absolute inset-0 bg-emerald-100 rounded-full blur-2xl animate-pulse"></div>
-                    <div className="relative w-24 h-24 bg-emerald-500 text-white rounded-[2.5rem] flex items-center justify-center text-5xl shadow-xl shadow-emerald-200 transform -rotate-6">
+                    <div className="absolute inset-0 bg-green-100 rounded-full blur-2xl animate-pulse"></div>
+                    <div className="relative w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-3xl flex items-center justify-center text-5xl shadow-2xl">
                       <i className="fa-solid fa-heart"></i>
                     </div>
                   </div>
                   
-                  <h2 className="text-4xl font-black text-[#1E1B4B] mb-4 tracking-tight">
-                    {lang === 'bn' ? 'ঐশ্বিক কৃতজ্ঞতা!' : 'Divine Gratitude!'}
+                  <h2 className="text-3xl font-black text-[#1E1B4B] mb-3 tracking-tight">
+                    {lang === 'bn' ? 'ধন্যবাদ!' : 'Thank You!'}
                   </h2>
-                  <p className="text-slate-500 text-lg mb-8 leading-relaxed max-w-sm">
+                  <p className="text-slate-600 text-base mb-8 leading-relaxed max-w-xs">
                     {lang === 'bn'
-                      ? 'আপনার নিঃস্বার্থ অবদানের জন্য ধন্যবাদ। আপনার সমর্থন সরাসরি আমাদের শক্তি এবং সেবার মিশনকে ক্ষমতায়িত করে।'
-                      : 'Thank you for your selfless contribution. Your support directly empowers our mission of strength and service.'}
+                      ? 'আপনার দানের জন্য ধন্যবাদ। আপনি একটি বাস্তব পার্থক্য তৈরি করছেন।'
+                      : 'Your donation has been received! You\'re making a real difference.'}
                   </p>
                   
-                  <div className="bg-emerald-50 px-8 py-4 rounded-2xl border border-emerald-100 mb-10">
-                    <span className="text-xs font-black text-emerald-600 uppercase tracking-[0.2em]">
-                      {lang === 'bn' ? 'স্বীকৃতি রসিদ পাঠানো হয়েছে' : 'Acknowledgment Receipt Sent'}
+                  <div className="bg-green-50 px-6 py-3 rounded-xl border border-green-200 mb-8">
+                    <span className="text-xs font-black text-green-600 uppercase tracking-widest">
+                      {lang === 'bn' ? 'রসিদ ইমেলে পাঠানো হয়েছে' : 'Receipt Sent to Email'}
                     </span>
                   </div>
 
                   <button 
                     onClick={() => setSuccess(false)} 
-                    className="px-10 py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-amber-600 transition-all shadow-xl hover:shadow-orange-200"
+                    className="px-8 py-3 bg-emerald-500 text-white rounded-xl font-black hover:bg-emerald-600 transition-all"
                   >
-                    {lang === 'bn' ? 'বাড়িতে ফিরুন' : 'Return to Home'}
+                    {lang === 'en' ? 'Make Another Donation' : 'আরও দান করুন'}
                   </button>
-               </div>
-             )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* FAQ Section */}
-        <div className="mt-24 max-w-4xl mx-auto">
-           <h3 className="text-2xl font-black text-[#1E1B4B] mb-8 text-center serif">
-             {lang === 'bn' ? 'সাধারণ প্রশ্ন' : 'Common Questions'}
-           </h3>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-                 <h4 className="font-black text-amber-600 text-sm uppercase mb-3">
-                   {lang === 'bn' ? 'আমার আইডি কোথায়?' : 'Where is my ID?'}
-                 </h4>
-                 <p className="text-sm text-slate-500 leading-relaxed">
-                   {lang === 'bn'
-                     ? 'বেশিরভাগ ব্যাংক সফল স্থানান্তরের পরে অবিলম্বে "রেফারেন্স নম্বর" বা "লেনদেন আইডি" প্রদান করে। এটি আপনার লেনদেনের ইতিহাসেও পাওয়া যায়।'
-                     : 'Most banks provide a "Reference Number" or "Transaction ID" immediately after a successful transfer. It is also found in your transaction history.'}
-                 </p>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-                 <h4 className="font-black text-amber-600 text-sm uppercase mb-3">
-                   {lang === 'bn' ? 'এটি নিরাপদ?' : 'Is it Secure?'}
-                 </h4>
-                 <p className="text-sm text-slate-500 leading-relaxed">
-                   {lang === 'bn'
-                     ? 'সরাসরি ব্যাংক হস্তান্তর ব্যবহার করে, আপনি আপনার ব্যাংকের নিরাপদ ইকোসিস্টেমের মধ্যে আপনার লেনদেনের সম্পূর্ণ নিয়ন্ত্রণ বজায় রাখেন। আমরা শুধুমাত্র যাচাইকরণ ডেটা সংরক্ষণ করি।'
-                     : 'By using direct bank transfers, you maintain full control of your transaction within your bank\'s secure ecosystem. We only store the verification data.'}
-                 </p>
-              </div>
-           </div>
+      {/* FAQ Section */}
+      <section className="py-28 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-40 h-40 bg-emerald-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-green-100/30 rounded-full blur-3xl"></div>
         </div>
-      </div>
+
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block px-5 py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border border-emerald-200">
+              ❓ {lang === 'en' ? 'FAQ' : 'প্রায়শই জিজ্ঞাসিত প্রশ্ন'}
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1E1B4B] mb-6 tracking-tight">
+              {lang === 'en' ? 'Common Questions' : 'সাধারণ প্রশ্নাবলী'}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                q: lang === 'en' ? 'Is my donation secure?' : 'আমার দান কি নিরাপদ?',
+                a: lang === 'en' ? 'Yes, we use direct bank transfers which are secure and encrypted. You maintain full control of the transaction.' : 'হ্যাঁ, আমরা সরাসরি ব্যাংক স্থানান্তর ব্যবহার করি যা নিরাপদ এবং এনক্রিপ্ট করা। আপনি লেনদেনের সম্পূর্ণ নিয়ন্ত্রণ বজায় রাখেন।'
+              },
+              {
+                q: lang === 'en' ? 'Can I get a receipt?' : 'আমি কি রসিদ পেতে পারি?',
+                a: lang === 'en' ? 'Yes, a detailed receipt will be sent to your email immediately after verification.' : 'হ্যাঁ, যাচাইয়ের পরে আপনার ইমেলে একটি বিস্তারিত রসিদ পাঠানো হবে।'
+              },
+              {
+                q: lang === 'en' ? 'How do I track my donation?' : 'আমি আমার দান কীভাবে ট্র্যাক করব?',
+                a: lang === 'en' ? 'After verification, you\'ll receive regular updates about how your donation is being used.' : 'যাচাইয়ের পরে, আপনি আপনার দান কীভাবে ব্যবহার করা হচ্ছে সে সম্পর্কে নিয়মিত আপডেট পাবেন।'
+              },
+              {
+                q: lang === 'en' ? 'Can I donate in other currencies?' : 'আমি কি অন্য মুদ্রায় দান করতে পারি?',
+                a: lang === 'en' ? 'Yes, most banks support international transfers. Your bank will automatically convert at the current rate.' : 'হ্যাঁ, বেশিরভাগ ব্যাংক আন্তর্জাতিক স্থানান্তর সমর্থন করে। আপনার ব্যাংক বর্তমান হারে স্বয়ংক্রিয়ভাবে রূপান্তরিত হবে।'
+              }
+            ].map((item, i) => (
+              <div key={i} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-white rounded-3xl p-8 border-2 border-slate-100 group-hover:border-emerald-300 hover:shadow-2xl transition-all duration-300">
+                  <h4 className="font-black text-emerald-600 text-lg mb-4 flex items-start gap-3">
+                    <span className="text-emerald-500 text-2xl">✓</span>
+                    {item.q}
+                  </h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-28 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400/15 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-green-400/15 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">
+            {lang === 'en' ? 'Be Part of the Change' : 'পরিবর্তনের অংশ হন'}
+          </h2>
+          <p className="text-emerald-100 text-xl leading-relaxed mb-12 max-w-3xl mx-auto">
+            {lang === 'en' 
+              ? 'Your contribution transforms lives and strengthens our global mission of developing true human beings.'
+              : 'আপনার অবদান জীবন রূপান্তরিত করে এবং প্রকৃত মানুষ গঠনের আমাদের বৈশ্বিক মিশনকে শক্তিশালী করে।'}
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button 
+              onClick={() => document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-10 py-5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-2xl font-black transition-all hover:shadow-2xl hover:shadow-emerald-500/50 transform hover:-translate-y-1 hover:scale-105 inline-flex items-center gap-3"
+            >
+              {lang === 'en' ? 'Donate Now' : 'এখনই দান করুন'} <i className="fa-solid fa-arrow-right"></i>
+            </button>
+            <a 
+              href="/"
+              className="px-10 py-5 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-2xl font-black transition-all hover:bg-white/20 hover:border-white/50 hover:scale-105"
+            >
+              {lang === 'en' ? 'Learn More' : 'আরও জানুন'}
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

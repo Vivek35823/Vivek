@@ -17,11 +17,16 @@ export interface Event {
 export interface LibraryItem {
   id: string;
   title: string;
+  titleBn?: string;
   category: 'Letters' | 'Collected Works' | 'Other Writings';
   description: string;
+  descriptionBn?: string;
   content: string;
+  contentBn?: string;
   author: string;
+  authorBn?: string;
   date?: string;
+  imageUrl?: string;
 }
 
 export interface Scholarship {

@@ -1,22 +1,25 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { dbService } from '../services/dbService';
+import { supabase } from '../services/supabaseClient';
 import { Member, ScholarshipApplication, Donation } from '../types';
 
 type TabType = 'members' | 'donations' | 'applications';
 
-const ADMIN_PASSWORD = 'admin123';
-
 interface AdminPanelState {
   isAuthenticated: boolean;
-  passwordInput: string;
-  passwordError: string;
+  email: string;
+  password: string;
+  errorMessage: string;
+  isLoading: boolean;
 }
 
 const AdminPanel: React.FC = () => {
   const [authState, setAuthState] = useState<AdminPanelState>({
     isAuthenticated: false,
-    passwordInput: '',
-    passwordError: ''
+    email: '',
+    password: '',
+    errorMessage: '',
+    isLoading: false
   });
 
   const [activeTab, setActiveTab] = useState<TabType>('members');
@@ -34,20 +37,56 @@ const AdminPanel: React.FC = () => {
     }
   }, [authState.isAuthenticated]);
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
+  const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (authState.passwordInput === ADMIN_PASSWORD) {
-      setAuthState({ isAuthenticated: true, passwordInput: '', passwordError: '' });
-    } else {
-      setAuthState(prev => ({ ...prev, passwordError: 'Invalid password', passwordInput: '' }));
+    setAuthState(prev => ({ ...prev, isLoading: true, errorMessage: '' }));
+    
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: authState.email,
+        password: authState.password
+      });
+
+      if (error) {
+        setAuthState(prev => ({ 
+          ...prev, 
+          errorMessage: error.message || 'Login failed. Check your credentials.',
+          isLoading: false 
+        }));
+        return;
+      }
+
+      if (data.user) {
+        setAuthState({ 
+          isAuthenticated: true, 
+          email: '', 
+          password: '', 
+          errorMessage: '',
+          isLoading: false 
+        });
+      }
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred during login';
+      setAuthState(prev => ({ ...prev, errorMessage: errorMessage, isLoading: false }));
     }
   };
 
-  const handleLogout = () => {
-    setAuthState({ isAuthenticated: false, passwordInput: '', passwordError: '' });
-    setMembers([]);
-    setDonations([]);
-    setApplications([]);
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      setAuthState({ 
+        isAuthenticated: false, 
+        email: '', 
+        password: '', 
+        errorMessage: '',
+        isLoading: false 
+      });
+      setMembers([]);
+      setDonations([]);
+      setApplications([]);
+    } catch (err) {
+      console.error('Error logging out:', err);
+    }
   };
 
   const loadData = async () => {
@@ -140,18 +179,38 @@ const AdminPanel: React.FC = () => {
 
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Admin Password</label>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">Admin Email</label>
                 <input
-                  type="password"
-                  value={authState.passwordInput}
-                  onChange={(e) => setAuthState(prev => ({ ...prev, passwordInput: e.target.value, passwordError: '' }))}
-                  placeholder="Enter admin password"
+                  type="email"
+                  value={authState.email}
+                  onChange={(e) => setAuthState(prev => ({ ...prev, email: e.target.value, errorMessage: '' }))}
+                  placeholder="Enter your admin email"
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"
+                  disabled={authState.isLoading}
                   autoFocus
+                  required
                 />
               </div>
-              {authState.passwordError && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">{authState.passwordError}</div>}
-              <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg">Access Admin Panel</button>
+              <div>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">Password</label>
+                <input
+                  type="password"
+                  value={authState.password}
+                  onChange={(e) => setAuthState(prev => ({ ...prev, password: e.target.value, errorMessage: '' }))}
+                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"
+                  disabled={authState.isLoading}
+                  required
+                />
+              </div>
+              {authState.errorMessage && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">{authState.errorMessage}</div>}
+              <button 
+                type="submit" 
+                disabled={authState.isLoading}
+                className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-slate-400 text-white font-bold py-3 rounded-lg transition-colors"
+              >
+                {authState.isLoading ? 'Signing in...' : 'Sign In'}
+              </button>
             </form>
           </div>
         </div>

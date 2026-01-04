@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Alasinga Perumal | VIVEK Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="library.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #FCFAF7;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1E1B4B 0%, #3B2F7F 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav .back-btn {
+            color: white;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav .back-btn:hover {
+            background: white;
+            color: #1E1B4B;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.85) 0%, rgba(59, 47, 127, 0.85) 100%), url('https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=1200') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="white" opacity="0.1"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero .category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(251, 146, 60, 0.9);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .author-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid #FB923C;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .author-box .label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #FB923C;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-box .name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1E1B4B;
+            font-style: italic;
+        }
+
+        /* Reading Section */
+        .reading-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            line-height: 1.9;
+        }
+
+        .reading-section h2 {
+            font-size: 1.5rem;
+            color: #1E1B4B;
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+
+        .reading-section p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .reading-section .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #1E1B4B;
+            border-left: 4px solid #FB923C;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.8;
+        }
+
+        /* Decorative Divider */
+        .divider {
+            text-align: center;
+            margin: 2rem 0;
+            color: #FB923C;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* Navigation Links */
+        .navigation-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link.prev {
+            background: #E0E7FF;
+            color: #1E1B4B;
+        }
+
+        .nav-link.prev:hover {
+            background: #1E1B4B;
+            color: white;
+        }
+
+        .nav-link.back {
+            background: linear-gradient(135deg, #FB923C 0%, #F97316 100%);
+            color: white;
+        }
+
+        .nav-link.back:hover {
+            box-shadow: 0 8px 16px rgba(251, 146, 60, 0.3);
+        }
+
+        .nav-link.next {
+            background: #E0E7FF;
+            color: #1E1B4B;
+        }
+
+        .nav-link.next:hover {
+            background: #1E1B4B;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1E1B4B;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .reading-section {
+                padding: 1.5rem;
+            }
+
+            .reading-section p {
+                font-size: 1rem;
+            }
+
+            nav .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-book-open"></i> VIVEK
+            </a>
+            <a href="/library" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Library
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content">
+            <span class="category">Letter</span>
+            <h1>Letter to Alasinga Perumal</h1>
+            <p class="subtitle">A Fundamental Piece of Correspondence</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <!-- Author Information -->
+        <div class="author-box">
+            <div class="label">From the Archives of</div>
+            <div class="name">Swami Vivekananda</div>
+        </div>
+
+        <!-- Main Reading Content -->
+        <div class="reading-section">
+            <h2>The Letter</h2>
+            
+            <p>This fundamental piece of correspondence addresses the future of India and the duty of the youth to rise up and meet the challenges of their time with courage and determination.</p>
+
+            <div class="quote">
+                "Work on with even more energy. Be brave and face everything—come what may, have faith that you will succeed in the end. The great truths are the properties of all ages and all countries; the little things of each age and country are the veriest nonsense."
+            </div>
+
+            <p>Swami Vivekananda's powerful words resonate through the ages, calling upon young people to embrace their potential and work tirelessly for the betterment of society. His message transcends time, speaking directly to the hearts of those who seek to make a meaningful difference in the world.</p>
+
+            <p>The letter emphasizes that true success comes not from individual achievement alone, but from dedication to a higher purpose. It is a call to action, a summons to the youth to stand up against injustice and to build a better world through selfless service and unwavering commitment to their ideals.</p>
+
+            <div class="divider">
+                <i class="fas fa-feather-pointed"></i>
+            </div>
+
+            <p>This timeless wisdom continues to inspire seekers and spiritual aspirants to embrace the path of righteousness and service. The letter stands as a testament to Vivekananda's profound understanding of human potential and his unwavering faith in the youth of every generation.</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="navigation-links">
+            <a href="/library" class="nav-link back">
+                <i class="fas fa-book"></i> All Library Items
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 VIVEK Foundation | Vivek Editorial Board</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -33,8 +33,8 @@ const Navbar: React.FC = () => {
       <div className={`mx-auto px-4 transition-all duration-500 ${scrolled ? 'max-w-5xl' : 'max-w-7xl'}`}>
         <div className="glass border border-white/20 rounded-[2rem] shadow-lg px-6 flex justify-between h-16 items-center">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 saffron-gradient rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg">V</div>
-            <span className="text-xl font-black text-[#1E1B4B] tracking-tight">VIVEK</span>
+            <img src="/images/VIVEK.png" alt="VIVEK Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-xl font-black text-[#1E1B4B] tracking-tight hidden sm:inline">VIVEK</span>
           </Link>
           
           <div className="hidden lg:flex items-center space-x-1">

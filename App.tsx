@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Events from './pages/Events';
 import EventDetail from './pages/EventDetail';
 import Library from './pages/Library';
+import Demo from './pages/Demo';
 import Scholarships from './pages/Scholarships';
 import ScholarshipApplication from './pages/ScholarshipApplication';
 import Membership from './pages/Membership';
@@ -45,6 +46,7 @@ const App: React.FC = () => {
             <Route path="/events/:id" element={<EventDetail />} />
             <Route path="/prayers" element={<Prayers />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/scholarships" element={<Scholarships />} />
             <Route path="/scholarship-apply" element={<ScholarshipApplication />} />
             <Route path="/membership" element={<Membership />} />
