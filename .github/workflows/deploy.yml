@@ -44,6 +44,9 @@ jobs:
           echo "---"
           echo "Checking assets:"
           ls -la dist/assets/ || echo "No assets folder"
+          echo "---"
+          echo "Checking images:"
+          ls -la dist/images/ || echo "No images folder"
 
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
