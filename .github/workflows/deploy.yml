@@ -25,11 +25,24 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
+      - name: Clear npm cache
+        run: npm cache clean --force
+
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
+
+      - name: Verify build output
+        run: |
+          echo "Checking dist/index.html:"
+          head -n 5 dist/index.html
+          echo "---"
+          tail -n 10 dist/index.html
+          echo "---"
+          echo "Checking assets:"
+          ls -la dist/assets/ || echo "No assets folder"
 
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
