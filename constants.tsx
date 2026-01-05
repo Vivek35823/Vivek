@@ -104,8 +104,7 @@ export const MOCK_LIBRARY: LibraryItem[] = [
     author: 'Swami Vivekananda',
     authorBn: 'স্বামী বিবেকানন্দ',
     content: '"Work on with even more energy. Be brave and face everything—come what may, have faith that you will succeed in the end. The great truths are the properties of all ages and all countries; the little things of each age and country are the veriest nonsense."',
-    contentBn: '"আরও শক্তি নিয়ে কাজ চালিয়ে যান। সাহসী হন এবং সবকিছুর মুখোমুখি হন—যা আসবে তাই আসুক, বিশ্বাস রাখুন যে আপনি শেষ পর্যন্ত সফল হবেন। মহান সত্যগুলি সমস্ত যুগ এবং সমস্ত দেশের সম্পত্তি; প্রতিটি যুগ এবং দেশের ছোট জিনিসগুলি সবচেয়ে নিরর্থক।"',
-    imageUrl: '/Vivek/images/alas.jpg'
+    contentBn: '"আরও শক্তি নিয়ে কাজ চালিয়ে যান। সাহসী হন এবং সবকিছুর মুখোমুখি হন—যা আসবে তাই আসুক, বিশ্বাস রাখুন যে আপনি শেষ পর্যন্ত সফল হবেন। মহান সত্যগুলি সমস্ত যুগ এবং সমস্ত দেশের সম্পত্তি; প্রতিটি যুগ এবং দেশের ছোট জিনিসগুলি সবচেয়ে নিরর্থক।"',    imageUrl: '/images/alas.jpg'
   },
   {
     id: 'l2',
@@ -118,7 +117,7 @@ export const MOCK_LIBRARY: LibraryItem[] = [
     authorBn: 'স্বামী বিবেকানন্দ',
     content: '"They alone live who live for others. The great secret of true success is to work, to work with all your heart and soul, work as the very salvation of your soul. This is the real socialism."',
     contentBn: '"যারা অন্যদের জন্য বাঁচে তারাই বাঁচে। প্রকৃত সাফল্যের মহান রহস্য হল কাজ করা, সমস্ত হৃদয় এবং আত্মা দিয়ে কাজ করা, আপনার আত্মার মুক্তি হিসেবে কাজ করা। এটিই প্রকৃত সমাজতন্ত্র।"',
-    imageUrl: '/Vivek/images/karma.jpg'
+    imageUrl: '/images/karma.jpg'
   },
   {
     id: 'l3',
@@ -131,7 +130,7 @@ export const MOCK_LIBRARY: LibraryItem[] = [
     authorBn: 'স্বামী বিবেকানন্দ',
     content: '"Love is the greatest religion in the world. However, love must not be blind. It must be enlightened. When love is joined with knowledge, it becomes something divine."',
     contentBn: '"ভালোবাসা হল পৃথিবীর সবচেয়ে বড় ধর্ম। তবে, ভালোবাসা অন্ধ হতে পারে না। এটি অবশ্যই জ্ঞাত হতে হবে। যখন ভালোবাসা জ্ঞানের সাথে যুক্ত হয়, তখন এটি কিছু দেবীয় হয়ে ওঠে।"',
-    imageUrl: '/Vivek/images/bhakti.jpg'
+    imageUrl: '/images/bhakti.jpg'
   },
   {
     id: 'l4',
@@ -144,7 +143,7 @@ export const MOCK_LIBRARY: LibraryItem[] = [
     authorBn: 'স্বামী বিবেকানন্দ',
     content: '"Each soul is potentially divine. The goal is to manifest this divinity within by controlling nature, external and internal. Do this either by work, or worship, or psychic control, or philosophy."',
     contentBn: '"প্রতিটি আত্মা সম্ভাব্যত দেবীয়। লক্ষ্য হল প্রকৃতিকে নিয়ন্ত্রণ করে, বাহ্যিক এবং আভ্যন্তরীণ উভয়ই, এই দেবীয়তাকে প্রকাশ করা। এটি করুন কাজ, বা পূজা, বা মানসিক নিয়ন্ত্রণ, বা দর্শনের মাধ্যমে।"',
-    imageUrl: '/Vivek/images/raja.jpg'
+    imageUrl: '/images/raja.jpg'
   },
   {
     id: 'l5',
@@ -157,7 +156,7 @@ export const MOCK_LIBRARY: LibraryItem[] = [
     authorBn: 'স্বামী বিবেকানন্দ',
     content: '"Religions have numbers only on account of their weakness. When religion becomes strong, who cares for numbers? To the truly universal man, the whole world is his own."',
     contentBn: '"ধর্মগুলির সংখ্যা শুধুমাত্র তাদের দুর্বলতার কারণে থাকে। যখন ধর্ম শক্তিশালী হয়, কে সংখ্যার পরোয়া করে? সত্যিকারের সর্বজনীন মানুষের কাছে, সারা বিশ্ব তার নিজের।"',
-    imageUrl: '/Vivek/images/bhaktii.jpg'
+    imageUrl: '/images/bhaktii.jpg'
   },
   {
     id: 'l6',
