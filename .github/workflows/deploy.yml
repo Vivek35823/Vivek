@@ -24,10 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: ''
-
-      - name: Clear npm cache
-        run: npm cache clean --force
 
       - name: Install dependencies
         run: npm ci
@@ -40,25 +36,18 @@ jobs:
           echo "Checking dist/index.html:"
           head -n 5 dist/index.html
           echo "---"
-          tail -n 10 dist/index.html
-          echo "---"
           echo "Checking assets:"
           ls -la dist/assets/ || echo "No assets folder"
           echo "---"
           echo "Checking images:"
           ls -la dist/images/ || echo "No images folder"
-
-      - name: Create .nojekyll file
-        run: touch dist/.nojekyll
-
-      - name: Create cache buster file
-        run: echo "Cache buster $(date +%s)" > dist/version.txt
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
+          echo "---"
+          echo "Full dist directory:"
+          find dist -type f | sort
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: false
