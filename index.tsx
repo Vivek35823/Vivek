@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
 
+// Deploy trigger
 console.log('App starting...');
 
 const rootElement = document.getElementById('root');
