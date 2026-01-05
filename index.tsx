@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
-// Deploy trigger v3
+// Deploy trigger v4 - images fix
 console.log('App starting...');
 
 const rootElement = document.getElementById('root');
