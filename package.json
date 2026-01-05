@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://vivek35823.github.io/Vivek/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
