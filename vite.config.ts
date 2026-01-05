@@ -18,7 +18,10 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         sourcemap: false,
-        minify: 'esbuild'
+        minify: 'esbuild',
+        rollupOptions: {
+          input: './index.html',
+        }
       }
     };
 });
