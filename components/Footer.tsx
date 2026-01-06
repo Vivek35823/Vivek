@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold mb-4 text-orange-400">Contact</h4>
             <ul className="space-y-2 text-sm text-slate-300">
-              <li className="flex items-center gap-2"><i className="fa-solid fa-envelope"></i> info@vivek-global.org</li>
-              <li className="flex items-center gap-2"><i className="fa-solid fa-phone"></i> +1 (234) 567-8900</li>
-              <li className="flex items-center gap-2"><i className="fa-solid fa-location-dot"></i> Global Presence - Various Centers</li>
+              <li className="flex items-center gap-2"><i className="fa-solid fa-envelope"></i>vivek.foundation.org@gmail.com</li>
+              <li className="flex items-center gap-2"><i className="fa-solid fa-phone"></i>----------</li>
+              <li className="flex items-center gap-2"><i className="fa-solid fa-location-dot"></i> Global Presence</li>
             </ul>
           </div>
           

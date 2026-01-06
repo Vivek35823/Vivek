@@ -35,61 +35,20 @@ export const TRANSLATIONS = {
 export const QUOTES = [ "Arise, awake, and stop not until the goal is reached.", "Strength is Life, Weakness is Death.", "Believe in yourself and the world will be at your feet.", "The greatest sin is to think yourself weak.", "You cannot believe in God until you believe in yourself.", "All the powers in the universe are already ours. It is we who have put our hands before our eyes and cry that it is dark.", "Purity, patience, and perseverance are the three essentials to success and, above all, love." ];
 
 export const MOCK_EVENTS: Event[] = [
-  {
-    id: '2',
-    title: 'Youth Leadership Workshop',
-    titleBn: 'যুব নেতৃত্ব কর্মশালা',
-    date: 'Jan 20, 2025',
-    time: '5:00 PM UTC',
-    location: 'Virtual & In-person',
-    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
-    category: 'Event',
-    description: 'Join us for an interactive workshop on leadership and personal development based on Swami Vivekananda\'s teachings.',
-    descriptionBn: 'স্বামী বিবেকানন্দের শিক্ষার উপর ভিত্তি করে নেতৃত্ব এবং ব্যক্তিগত উন্নয়নের একটি ইন্টারেক্টিভ কর্মশালায় আমাদের সাথে যোগ দিন।',
-    meetingLink: 'https://zoom.us/j/your-meeting-id',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: '3',
-    title: 'Monthly Study Circle',
-    titleBn: 'মাসিক অধ্যয়ন বৃত্ত',
-    date: 'Jan 25, 2025',
-    time: '7:00 PM UTC',
-    location: 'Online',
-    locationBn: 'অনলাইন',
-    category: 'Event',
-    description: 'Monthly discussion on Swami Vivekananda\'s complete works and their application in modern life.',
-    descriptionBn: 'স্বামী বিবেকানন্দের সম্পূর্ণ রচনা এবং আধুনিক জীবনে তাদের প্রয়োগ সম্পর্কে মাসিক আলোচনা।',
-    meetingLink: 'https://meet.google.com/your-meeting-code',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
-  },
+ 
   {
     id: '4',
-    title: "Swamiji's Birthday Celebration",
-    titleBn: "স্বামীজির জন্মদিন উৎসব",
-    date: 'Jan 12, 2025',
-    time: '5:00 PM UTC',
+    title: "Vivekananda Charcha (Study circle-18)",
+    titleBn: "বিবেকানন্দ চর্চা (পাঠচক্র-১৮)",
+    date: 'Jan 11, 2025',
+    time: 'BD TIME 6:00 PM',
     location: 'Virtual & In-person',
     locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
     category: 'Event',
-    description: 'Join us for a grand celebration of Swami Vivekananda\'s birth anniversary with spiritual programs, devotional singing, and inspiring discourses on his life and teachings.',
-    descriptionBn: 'স্বামী বিবেকানন্দের জন্মবার্ষিকী উপলক্ষে আমাদের সাথে যোগ দিন এবং আধ্যাত্মিক অনুষ্ঠান, ভক্তিমূলক গান এবং তার জীবন ও শিক্ষার উপর অনুপ্রেরণামূলক আলোচনা উপভোগ করুন।',
+    description: 'Join us for a spiritual programs, devotional singing, and inspiring discourses on his life and teachings.',
+    descriptionBn: 'আমাদের সাথে যোগ দিন এবং আধ্যাত্মিক অনুষ্ঠান, ভক্তিমূলক গান শিক্ষার উপর অনুপ্রেরণামূলক আলোচনা উপভোগ করুন।',
     meetingLink: 'https://zoom.us/j/your-meeting-id',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: '5',
-    title: 'Women Empowerment Workshop',
-    titleBn: 'নারী ক্ষমতায়ন কর্মশালা',
-    date: 'Mar 20, 2025',
-    time: '5:30 PM UTC',
-    location: 'Virtual & In-person',
-    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
-    category: 'Event',
-    description: 'A comprehensive workshop on women empowerment, leadership, and personal growth inspired by Swami Vivekananda\'s teachings on universal equality and women\'s potential.',
-    descriptionBn: 'স্বামী বিবেকানন্দের সার্বজনীন সমতা এবং নারী সম্ভাবনার শিক্ষার উপর ভিত্তি করে নারী ক্ষমতায়ন, নেতৃত্ব এবং ব্যক্তিগত বৃদ্ধি সম্পর্কে একটি বিস্তৃত কর্মশালা।',
-    meetingLink: 'https://zoom.us/j/9876543210',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+    imageUrl:'/images/ff.png'
   }
 ];
 
