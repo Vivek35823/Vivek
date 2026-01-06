@@ -75,7 +75,7 @@ const Scholarships: React.FC = () => {
           <div className="relative hidden lg:block">
             <div className="absolute -inset-8 bg-gradient-to-br from-cyan-400/20 via-green-400/20 to-blue-400/20 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/20 aspect-square">
               <img 
-                src="/Vivek/images/britti.png" 
+                src="/images/britti.png" 
                 alt="Educational Scholarships"
                 className="w-full h-full object-cover"
               />
