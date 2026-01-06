@@ -90,7 +90,7 @@ const Home: React.FC = () => {
               <div className="absolute -inset-6 bg-gradient-to-br from-amber-400/20 via-pink-400/20 to-cyan-400/20 rounded-[4rem] blur-3xl group-hover:blur-2xl transition-all duration-700 opacity-0 group-hover:opacity-100"></div>
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:rotate-0 transition-all duration-1000 aspect-[4/5] border-8 border-white/20 backdrop-blur">
                  <img 
-                  src="/dist/images/pow.png" 
+                  src="https://github.com/Vivek35823/Vivek/blob/main/images/pow.png" 
                   className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" 
                   alt="Swami Vivekananda Inspired"
                 />
