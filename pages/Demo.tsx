@@ -85,10 +85,9 @@ const Demo: React.FC = () => {
             style={{ transform: `translate(${mousePos.x * -20}px, ${mousePos.y * -20}px)` }}
           >
             <div className="relative group">
-              <div className="absolute -inset-4 bg-amber-500/10 rounded-[4rem] blur-2xl group-hover:bg-amber-500/20 transition-colors duration-700"></div>
-              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl transform rotate-2 group-hover:rotate-0 transition-all duration-1000 aspect-[4/5] border-8 border-white">
+              <div className="absolute -inset-4 bg-amber-500/10 rounded-[4rem] blur-2xl group-hover:bg-amber-500/20 transition-colors duration-700"></div>              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl transform rotate-2 group-hover:rotate-0 transition-all duration-1000 aspect-[4/5] border-8 border-white">
                 <img 
-                  src="/images/abc.jpg" 
+                  src="/Vivek/images/abc.jpg" 
                   className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" 
                   alt="VIVEK Foundation"
                 />
