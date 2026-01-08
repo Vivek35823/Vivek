@@ -128,7 +128,7 @@ const Library: React.FC = () => {
                       {getAuthor(item)}
                     </span>
                     <button 
-                      onClick={() => window.open(`/library/library-${item.id}.html`, '_blank')}
+                      onClick={() => window.location.href = `/library/library-${item.id}.html`}
                       className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-indigo-600 text-white flex items-center justify-center hover:scale-125 shadow-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all"
                     >
                       <i className="fa-solid fa-arrow-right text-sm"></i>
