@@ -178,10 +178,9 @@ const Demo: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <i className="fa-solid fa-calendar text-amber-600"></i>
                       {getEventDate(event)}
-                    </div>
-                    <div className="flex items-center gap-2">
+                    </div>                    <div className="flex items-center gap-2">
                       <i className="fa-solid fa-clock text-amber-600"></i>
-                      {event.time}
+                      <span className="whitespace-pre-line">{event.time}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <i className="fa-solid fa-location-dot text-amber-600"></i>

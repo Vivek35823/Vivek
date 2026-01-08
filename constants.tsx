@@ -7,7 +7,7 @@ export const TRANSLATIONS = {
   en: {
     nav: { home: 'Home', events: 'Events', library: 'Library', scholarships: 'Scholarships', join: 'Join Us', donate: 'Donate', about: 'About', prayers: 'Study Circle', aboutUs: 'About Us' },
     hero: { title: 'To Be Good', subtitle: '& To Do Good', tagline: 'A Global network initiatives to the way of our self consciousness...', desc: '"Arise, awake, and stop not until the goal is reached." Join the mission of strength and service.', heroParagraph: 'Join a global community inspired by Swami Vivekananda\'s timeless wisdom. Transform yourself and serve humanity through education, spirituality, and selfless service.', cta1: 'Become a Member', cta2: 'Our Philosophy' },
-    prayers: { title: 'Global Sanctuary', subtitle: 'Collective Prayer', desc: 'Join our synchronized global sessions for peace and strength.', joinBtn: 'Join Zoom / Meet', instructions: 'Please join 5 minutes early for technical setup.', schedule: 'Prayer Schedule', scheduleDesc: 'Synchronized sessions held weekly on Sundays.', techRequirements: 'Technical Requirements', techDesc: 'Stable internet, headphones, and a quiet environment are recommended for the best experience.', etiquette: 'Etiquette', etiquetteDesc: 'Please keep your microphone muted unless instructed otherwise. Cameras are optional but encouraged.', timeRemaining: 'Time Remaining', quote: '"Prayer is the highest strength a human can possess."', active: 'Active' },
+    prayers: { title: 'Global Sanctuary', subtitle: 'Collective Prayer', desc: 'Join our synchronized global sessions for peace and strength.', joinBtn: 'Join Meet', instructions: 'Please join 5 minutes early for technical setup.', schedule: 'Prayer Schedule', scheduleDesc: 'Synchronized sessions held weekly on Sundays.', techRequirements: 'Technical Requirements', techDesc: 'Stable internet, headphones, and a quiet environment are recommended for the best experience.', etiquette: 'Etiquette', etiquetteDesc: 'Please keep your microphone muted unless instructed otherwise. Cameras are optional but encouraged.', timeRemaining: 'Time Remaining', quote: '"Prayer is the highest strength a human can possess."', active: 'Active' },
     events: { pageTitle: 'Upcoming Events', subtitle: 'Events & Activities', desc: 'Join our international community in collective spiritual practices and educational workshops.', viewDetails: 'View Details', joinLink: 'Join Link', category: 'Category', date: 'Date', time: 'Time', location: 'Location', description: 'Description', virtualEventLink: 'Virtual Event Link', joinOnline: 'Join Online Prayer', close: 'Close', upcoming: 'Upcoming', ongoing: 'Ongoing' },
     library: { pageTitle: 'Digital Sanctuary', subtitle: 'The Vivek Archives', desc: 'Explore a curated collection of Swamiji\'s timeless wisdom, digitized for seekers in every corner of the globe.', all: 'All', letters: 'Letters', collectedWorks: 'Collected Works', otherWritings: 'Other Writings', author: 'Author', category: 'Category', doneReading: 'Done Reading', readMore: 'Read', fromArchives: 'From the archives of', editorialBoard: 'Vivek Editorial Board' },
     about: { pageTitle: 'About Us', subtitle: 'Organization Overview & Mission', orgDescription: 'Organization Description', orgName: 'Organization Name', nameEn: 'English: Vivekananda International Value and Education Centre—VIVEK', nameBn: 'Bengali: Vivekananda Vedanta Centre—Vivek', foundedDate: 'Founded Date', foundedDesc: 'After operating informally for approximately 13 years since 2011, the organization formally announced its official launch on January 1, 2024. Therefore, January 1 is celebrated as the organization\'s founding day.', address: 'Address', addressOnline: 'Online: Website: http://vivekfoundation.org', orgType: 'Organization Type', orgTypeDesc: 'Apolitical, Non-profit, Service-oriented Non-governmental Institution', ideology: 'Ideology & Objectives', ideologyTitle: 'Ideology', ideologyDesc: 'The life and teachings of Swami Vivekananda form the foundation of this organization. Guided by his principle "To be good and to do good—that is the whole of religion," we strive to develop ourselves as true human beings and help others become true human beings as well.', objectives: 'Objectives', objectivesDesc: 'While striving to develop ourselves as true humans, we aim to serve humanity for the welfare of ourselves and society. Some short and long-term objectives include:', objectiveList: [ 'Build a socially conscious and awakened youth community through service initiatives', 'Assist underprivileged and disadvantaged children to become responsible citizens', 'Provide support to all regardless of caste, creed, religion, age, or background in their journey to become true humans', 'Give special focus and priority to backward, homeless, disadvantaged, minority, and tribal communities' ], foundersTitle: 'Founders & Members', foundersDesc: 'This organization has no single founder. All individuals who work for the organization are important members. The organization maintains no significant titles or positions. While volunteers may be assigned various responsibilities and administrative titles may be used internally, all members publicly identify as "Vivekananda Devotees" and use no official titles in public engagement or interactions with the general public.', activitiesTitle: 'Organization Activities', activitiesDesc: 'The organization\'s work is divided into two main categories:', selfDevelopment: 'Self-Development Activities', selfDevelopmentList: [ 'Study circles (weekly or monthly)', 'Book reading programs', 'Educational courses, seminars, and workshops', 'Meditation, yoga, and other physical and mental wellness programs', 'Competitions for youth and children: drawing, quizzes, recitation, debates, olympiads, music, and other talents' ], serviceActivities: 'Service Activities', serviceActivitiesList: [ 'Education Services: Distribution of free educational materials', 'Medical Services: Free primary healthcare and medicine distribution', 'Festival Support: Distribution of new clothes during festivals', 'Disaster Relief & Emergency Support: Providing food and assistance during crises', 'Humanitarian Service: Participation in all human welfare activities' ] }
@@ -35,22 +35,45 @@ export const TRANSLATIONS = {
 export const QUOTES = [ "Arise, awake, and stop not until the goal is reached.", "Strength is Life, Weakness is Death.", "Believe in yourself and the world will be at your feet.", "The greatest sin is to think yourself weak.", "You cannot believe in God until you believe in yourself.", "All the powers in the universe are already ours. It is we who have put our hands before our eyes and cry that it is dark.", "Purity, patience, and perseverance are the three essentials to success and, above all, love." ];
 
 export const MOCK_EVENTS: Event[] = [
- 
-  {
-    id: '4',
-    title: "Vivekananda Charcha (Study circle-18)",
-    titleBn: "বিবেকানন্দ চর্চা (পাঠচক্র-১৮)",
-    date: 'Jan 11, 2025',
-    time: 'BD TIME 6:00 PM',
+  {    id: '4',
+    title: "Vivekananda Charcha (Study Circle – 18)",
+    titleBn: "বিবেকানন্দ চর্চা (পাঠচক্র–১৮)",
+    date: 'Jan 11, 2026',
+    time: `🇧🇩 BD Time: 6:30 PM
+🇮🇳 India Time: 6:00 PM
+🇦🇺 Australian Time: 11:30 AM
+🇺🇸 US Time: 12:30 AM`,
     location: 'Virtual & In-person',
-    locationBn: 'ভার্চুয়াল এবং ব্যক্তিগত',
+    locationBn: 'ভার্চুয়াল এবং সশরীরে',
     category: 'Event',
-    description: 'Join us for a spiritual programs, devotional singing, and inspiring discourses on his life and teachings.',
-    descriptionBn: 'আমাদের সাথে যোগ দিন এবং আধ্যাত্মিক অনুষ্ঠান, ভক্তিমূলক গান শিক্ষার উপর অনুপ্রেরণামূলক আলোচনা উপভোগ করুন।',
-    meetingLink: 'https://zoom.us/j/your-meeting-id',
-    imageUrl:'/images/ff.png'
+    description: `Dear Esteemed Well-wisher,
+
+You are cordially invited to participate in the "Vivekananda Study Circle," organized by the Vivekananda Vedanta Centre (VIVEK).
+
+🔰 Study Circle: Vivekananda Discussion – 18
+
+📖 Topic: Challenges of Daily Life and Their Solutions in the Light of the Teachings of Swami Vivekananda
+
+🎙️ Speaker: Swami Sthiratmanandaji
+
+We warmly welcome your presence and active participation.`,
+
+    descriptionBn: `সুপ্রিয় সুধী,
+
+বিবেকানন্দ বেদান্ত কেন্দ্র (বিবেক) আয়োজিত "বিবেকানন্দ চর্চা (পাঠচক্র–১৮)" অনুষ্ঠানে অংশগ্রহণের জন্য আপনাকে আন্তরিক আমন্ত্রণ জানাচ্ছি।
+
+🔰 পাঠচক্র: বিবেকানন্দ চর্চা – ১৮
+
+📖 বিষয়: স্বামী বিবেকানন্দের জীবনবাণীর আলোকে দৈনন্দিন জীবনের সমস্যা ও তার সমাধান
+
+🎙️ বক্তা: স্বামী স্থিরাত্মানন্দজী
+
+আপনার উপস্থিতি আমাদের পরম আনন্দের বিষয় হবে।`,
+    meetingLink: 'https://meet.google.com/wff-nhoe-fig',
+    imageUrl: '/images/ff.jpeg'
   }
 ];
+
 
 export const MOCK_LIBRARY: LibraryItem[] = [
   {

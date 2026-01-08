@@ -105,7 +105,7 @@ const Events: React.FC = () => {
                     <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
                     <div className="flex items-center gap-2 text-orange-600 font-bold">
                       <i className="fa-solid fa-clock"></i>
-                      <span>{event.time}</span>
+                      <span className="whitespace-pre-line">{event.time}</span>
                     </div>
                   </div>
 

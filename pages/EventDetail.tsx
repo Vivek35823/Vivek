@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../App';
 import { TRANSLATIONS, MOCK_EVENTS } from '../constants';
@@ -8,8 +8,23 @@ const EventDetail: React.FC = () => {
   const { lang } = useLanguage();
   const navigate = useNavigate();
   const t = TRANSLATIONS[lang];
+  const [copied, setCopied] = useState(false);
 
   const event = MOCK_EVENTS.find((e) => e.id === id);
+
+  const handleCopyLink = () => {
+    if (event?.meetingLink) {
+      navigator.clipboard.writeText(event.meetingLink);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleJoinMeeting = () => {
+    if (event?.meetingLink) {
+      window.open(event.meetingLink, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   if (!event) {
     return (
@@ -63,10 +78,9 @@ const EventDetail: React.FC = () => {
                   <i className="fa-solid fa-calendar-days"></i>
                   <span>{event.date}</span>
                 </div>
-                <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-                <div className="flex items-center gap-2 text-amber-600 font-black text-lg">
+                <div className="w-1 h-1 bg-slate-300 rounded-full"></div>                <div className="flex items-center gap-2 text-amber-600 font-black text-lg">
                   <i className="fa-solid fa-clock"></i>
-                  <span>{event.time}</span>
+                  <span className="whitespace-pre-line">{event.time}</span>
                 </div>
               </div>
 
@@ -84,16 +98,14 @@ const EventDetail: React.FC = () => {
                   <span>{lang === 'bn' && event.locationBn ? event.locationBn : event.location}</span>
                 </div>
               </div>
-            </div>
-
-            {/* Description Section */}
+            </div>            {/* Description Section */}
             <div className="mb-12">
               <h2 className="text-3xl font-black text-[#1E1B4B] mb-6">
                 {t.events.description}
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+              <div className="text-lg text-slate-600 leading-relaxed mb-8 whitespace-pre-line">
                 {lang === 'bn' && event.descriptionBn ? event.descriptionBn : event.description}
-              </p>
+              </div>
             </div>
 
             {/* Key Information Cards */}
@@ -105,15 +117,13 @@ const EventDetail: React.FC = () => {
                   {lang === 'bn' ? 'তারিখ' : 'Date'}
                 </h3>
                 <p className="text-slate-700 font-semibold text-lg">{event.date}</p>
-              </div>
-
-              {/* Time Card */}
+              </div>              {/* Time Card */}
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200">
                 <h3 className="font-black text-[#1E1B4B] mb-3 text-lg flex items-center gap-2">
                   <i className="fa-solid fa-clock text-purple-600"></i>
                   {lang === 'bn' ? 'সময়' : 'Time'}
                 </h3>
-                <p className="text-slate-700 font-semibold text-lg">{event.time}</p>
+                <p className="text-slate-700 font-semibold text-lg whitespace-pre-line">{event.time}</p>
               </div>
 
               {/* Location Card */}
@@ -159,17 +169,28 @@ const EventDetail: React.FC = () => {
                 </p>
               </div>
 
-              {/* Action Button */}
-              <button className="w-full py-4 bg-amber-600 text-white rounded-xl font-black uppercase tracking-wide hover:bg-amber-700 transition-all duration-300 transform hover:scale-105 mb-4">
-                <i className="fa-solid fa-check-circle mr-2"></i>
-                {lang === 'bn' ? 'এখনই নিবন্ধন করুন' : 'Register Now'}
-              </button>
-
-              {/* Secondary Action */}
+                            {/* Action Button - Join Meeting */}
               {event.meetingLink && (
-                <button className="w-full py-3 border-2 border-amber-600 text-amber-600 rounded-xl font-black uppercase tracking-wide hover:bg-amber-600 hover:text-white transition-all duration-300">
+                <button 
+                  onClick={handleJoinMeeting}
+                  className="w-full py-4 bg-amber-600 text-white rounded-xl font-black uppercase tracking-wide hover:bg-amber-700 transition-all duration-300 transform hover:scale-105 mb-4"
+                >
                   <i className="fa-solid fa-video mr-2"></i>
-                  {lang === 'bn' ? 'অনলাইনে যোগ দিন' : 'Join Online'}
+                  {lang === 'bn' ? 'মিটিংয়ে যোগ দিন' : 'Join Meeting'}
+                </button>
+              )}
+
+              {/* Secondary Action - Copy Link */}
+              {event.meetingLink && (
+                <button 
+                  onClick={handleCopyLink}
+                  className="w-full py-3 border-2 border-amber-600 text-amber-600 rounded-xl font-black uppercase tracking-wide hover:bg-amber-600 hover:text-white transition-all duration-300 mb-4"
+                >
+                  <i className={`fa-solid ${copied ? 'fa-check' : 'fa-link'} mr-2`}></i>
+                  {copied 
+                    ? (lang === 'bn' ? 'কপি হয়েছে!' : 'Link Copied!') 
+                    : (lang === 'bn' ? 'লিংক কপি করুন' : 'Copy Meeting Link')
+                  }
                 </button>
               )}
 
