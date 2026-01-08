@@ -13,7 +13,7 @@ const Membership: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const countries = ["USA", "India", "UK", "Canada", "Australia", "Germany", "France", "Japan", "Other"];
+  const countries = ["USA", "India", "UK", "Canada", "Australia", "Germany", "France", "Japan","Bangladesh" ,"Other"];
 
   // Bilingual translations
   const t = {

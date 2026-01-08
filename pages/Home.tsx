@@ -450,7 +450,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-block px-5 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full text-amber-300 text-xs font-bold tracking-widest uppercase mb-6">
-                🏛️ Our Organization
+                 Our Organization
               </div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">About VIVEK Foundation</h2>
               <p className="text-slate-300 text-lg leading-relaxed mb-8">
